@@ -16,7 +16,7 @@ switch(respuesta){
 
     // Mostrar productos
     case "1":
-
+        console.log("*Precios sin IVA");
         for(let index = 0; index < ListaProductos.length; index++){
             console.log (ListaProductos[index] );
         }
@@ -53,25 +53,34 @@ switch(respuesta){
 
 // producto -1 para dejarlo igual que el índice del arreglo
 
-function Compra(idproducto){
+function Compra(idproducto, preciofinal, mensaje){
 
     if((idproducto -1) > (ListaProductos.length -1)){
         alert("Ese producto no existe")
     }else{
-    carrito.push(ListaProductos[(idproducto - 1)])
 
-    console.log("Su compra: ")
-    console.log (carrito);
+
+    // buscando producto
+    const miProducto = ListaProductos.find( (producto) => producto.id === (idproducto));
+
+    carrito.push(miProducto);
+    // sumando iva
+    preciofinal = miProducto.precio + miProducto.precio /100 * 21;
+
+    // el renglón de abajo no lo uso pero lo guardo
+    // console.log(miProducto.precio);
+
+    // bajando 1 unidad de stock
+    miProducto.stock = miProducto.stock -1;
+
+    // mensaje final
+    console.log("El precio final del producto " + miProducto.nombre + " es: $" + preciofinal);
+
     flag=false;
     }
 
 }
 
-// para sumar el iva
-function SumarIva(producto){
 
-    return preciofinal = producto + producto /100 *21;
-
-}
 
 
