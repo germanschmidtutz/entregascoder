@@ -1,41 +1,39 @@
-*{
-    padding: 0;
-    margin: 0;
-}
-
 body{
-    background-color: rgb(97, 99, 99);
-}
-
-h1{
-    text-align: center;
-}
-
-
-.contenedorProductos{
-    display:flex;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    padding: 50px;
-    width:80%;
-    margin-left: 5%;
-    height: 200px;
-    background-color: rgba(0, 255, 191, 0.288);
+    align-items: center;
 }
 
-.productos{
-    width: 20%;
-
+#contenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
 }
 
+#contenedor label{
+    display: flex;
+    justify-content: center;
+}
 
-.boton{
-    background-color: black;
-    color: white;
+table{
+    width: 40%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+thead{
+    background-color: rgba(48, 21, 148, 0.357);
     height: 50px;
-    width: 150px;
-    text-align: center;
+    
 }
 
-.carritoDeCompras{
-    text-align: center;
+td{
+    height: 50px;
+    font-size: large;
+}
+
+img{
+    height: 100px;
 }

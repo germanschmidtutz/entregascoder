@@ -4,16 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafío</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>Tienda</title>
 </head>
 <body>
-
-
-    <h1>Incorporar Arrays</h1>
-
-
-
     
-    
+
+
+    <div>
+        <h2>Tienda - Lista de productos</h2>
+        <div id="contenedor">
+            <label>
+                <span>Remeras</span>
+                <input type="radio" name="filtro" value="remera" class="radio">
+            </label>
+            <label>
+                <span>Pantalones</span>
+                <input type="radio" name="filtro" value="pantalon" class="radio">
+            </label>
+            <label>
+                <span>Camperas</span>
+                <input type="radio" name="filtro" value="campera" class="radio">
+            </label>
+           <label>
+                <span>Todos los productos</span>
+                <input type="radio" name="filtro" value="todos" class="radio">
+           </label>
+        </div>
+    </div>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+
+        <tbody id="tbody"></tbody>
+
+    </table>
+
+    <script src="./productos.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>

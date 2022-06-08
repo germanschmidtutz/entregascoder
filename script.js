@@ -1,25 +1,66 @@
+let arrayProductos = ListaProductos;
 
-// array de personas vacío
-const personas = [];
-// se consulta la cant de personas
-let cantPersonas = prompt("¿Cuántas personas desea cargar?");
+function Rellenar_tabla (array){
 
+    // encontrando la tabla
+    const tbody = document.getElementById("tbody");
+    tbody.innerHTML = "";
 
-if (isNaN(cantPersonas)){
-    alert("No escribiste un número")
-}else{
-   
-    // for para pedir los nombres de la cantidad de las personas indicadas
-    for (let i = 1; i <= cantPersonas; i++){
-        personas.push(prompt("Decime el nombre de la persona número " + i));
+    //por cada producto que recorre crea un tr
+    for (const producto of array){
+
+        // creando un tr
+        const tr = document.createElement("tr");
+
+        // haciendo el inner necesario
+        tr.innerHTML = `<td><img src='${producto.imagen}'></td>
+        <td>${producto.nombre}</td>
+        <td>$${producto.precio}</td>`
+
+        tbody.appendChild(tr);
     }
-  
-    // se da la lista
-       alert ("Esta es la lista de personas: \n" + personas.join(", "));
+
+}
+
+
+const storage = JSON.parse(localStorage.getItem("filtro")); 
+
+if(storage){
+    arrayProductos = storage;
+}
+
+
+
+Rellenar_tabla(arrayProductos)
+
+
+// traer a los radio del html
+const input_radio = document.getElementsByClassName("radio");
+
+// recorrer los radio
+
+for (let i = 0; i < input_radio.length ; i ++){
+    input_radio[i].addEventListener("click", FiltrarTabla);
+
+}
+
+
+function FiltrarTabla(evento){
+    // console.log(evento.target.value);
+
+    let input_value = evento.target.value.toUpperCase();
+
+
+
+    if(input_value != "TODOS"){
+        arrayProductos = arrayProductos.filter( (elemento) => {
+            return elemento.tipo.toLocaleUpperCase() === input_value
+        })
+    }else{
+        arrayProductos = ListaProductos;
     }
 
+    localStorage.setItem("filtro", JSON.stringify(arrayProductos));
 
-
-
-
-
+    Rellenar_tabla(arrayProductos);
+}
