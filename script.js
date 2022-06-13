@@ -76,8 +76,13 @@ function FiltrarTabla(evento){
 // desesestructurar
 let [prod0, prod1, prod2, prod3, prod4, prod5, prod6, prod7, prod8, prod9] = ListaProductos;
 
-for (let i = 0; i < ListaProductos.length ; i ++){
 
-    console.log(ListaProductos[i]);
+// probando
+console.log(prod0);
+console.log(prod1.nombre);
 
-}
+// for (let i = 0; i < ListaProductos.length ; i ++){
+
+//     console.log(ListaProductos[i]);
+
+// }
