@@ -51,16 +51,33 @@ function FiltrarTabla(evento){
     let input_value = evento.target.value.toUpperCase();
 
 
+    // operador ternario
 
-    if(input_value != "TODOS"){
-        arrayProductos = arrayProductos.filter( (elemento) => {
-            return elemento.tipo.toLocaleUpperCase() === input_value
-        })
-    }else{
-        arrayProductos = ListaProductos;
-    }
+    input_value != "TODOS" ? arrayProductos = arrayProductos.filter( (elemento) => {
+        return elemento.tipo.toLocaleUpperCase() === input_value
+    }) : arrayProductos = ListaProductos;
+
+    // if largo anterior
+
+    // if(input_value != "TODOS"){
+    //     arrayProductos = arrayProductos.filter( (elemento) => {
+    //         return elemento.tipo.toLocaleUpperCase() === input_value
+    //     })
+    // }else{
+    //     arrayProductos = ListaProductos;
+    // }
 
     localStorage.setItem("filtro", JSON.stringify(arrayProductos));
 
     Rellenar_tabla(arrayProductos);
+}
+
+
+// desesestructurar
+let [prod0, prod1, prod2, prod3, prod4, prod5, prod6, prod7, prod8, prod9] = ListaProductos;
+
+for (let i = 0; i < ListaProductos.length ; i ++){
+
+    console.log(ListaProductos[i]);
+
 }
