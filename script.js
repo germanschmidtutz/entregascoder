@@ -53,9 +53,22 @@ function FiltrarTabla(evento){
 
     // operador ternario
 
-    input_value != "TODOS" ? arrayProductos = arrayProductos.filter( (elemento) => {
-        return elemento.tipo.toLocaleUpperCase() === input_value
-    }) : arrayProductos = ListaProductos;
+    arrayProductos = input_value === "TODOS"
+        ? ListaProductos 
+        : ListaProductos.filter( (elemento) => ( elemento.tipo.toLocaleUpperCase() === input_value ))
+        Toastify({
+            text: "¡ÚLTIMOS PRODUCTOS EN STOCK!",
+            duration: 1000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            }
+          }).showToast();;
 
     // if largo anterior
 
@@ -86,3 +99,23 @@ console.log(prod1.nombre);
 //     console.log(ListaProductos[i]);
 
 // }
+
+
+setTimeout(() => {
+
+    Toastify({
+        text: "ÚLTIMOS PRODUCTOS DISPONIBLES",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        }
+      }).showToast();
+    
+}, 4000);
+
