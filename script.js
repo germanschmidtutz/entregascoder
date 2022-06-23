@@ -1,4 +1,18 @@
-let arrayProductos = ListaProductos;
+let arrayProductos = fetch("./productos.JSON")
+.then ( (resp)  => resp.json())
+//   aca la convierte, pasa a json
+//   después de esto, se puede usar
+  .then ( (data) => {
+
+
+    console.log ( data[5].nombre);
+    console.log ( data[5].precio );
+    console.log (data);
+
+    
+});
+  
+
 
 function Rellenar_tabla (array){
 
@@ -13,7 +27,7 @@ function Rellenar_tabla (array){
         const tr = document.createElement("tr");
 
         // haciendo el inner necesario
-        tr.innerHTML = `<td><img src='${producto.imagen}'></td>
+        tr.innerHTML = `<td><img src='${array.imagen}'></td>
         <td>${producto.nombre}</td>
         <td>$${producto.precio}</td>`
 
